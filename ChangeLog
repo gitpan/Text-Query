@@ -1,7 +1,3 @@
-1999-06-14  Loic Dachary  <loic@ceic.com>
-
-	* Release 0.06 New architecture.
-
 Revision history for Perl extension Text::Query::Advanced.
 
 0.01  Mon Nov 16 22:52:58 1998
@@ -14,4 +10,9 @@ Revision history for Perl extension Text::Query::Advanced.
 	- eliminated use of qr//, allowing use with pre-5.005 Perl
 0.05  Fri May 21 06:00:00 1999
         - removed test for 5.005 from makefile.pl
+0.06  1999-06-14  Loic Dachary  <loic@ceic.com>
+        - Release New architecture.
+0.07  Wed Jun 23 02:30:00 1999
+        - Fix tests
+
 

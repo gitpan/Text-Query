@@ -13,7 +13,7 @@ plan test => 18;
 #
 {
     my($question);
-    my($query) = Text::Query->new();
+    my($query) = Text::Query->new(-build=>'Text::Query::Build',-solve=>'Text::Query::Solve');
 
     $question = "10";
     $query->prepare($question);
@@ -35,7 +35,7 @@ plan test => 18;
 {
     my($question);
     my($query) = Text::Query->new('bluf', -verbose => 0);
-    $query->configure(-parse => 'Text::Query::ParseAdvanced');
+    $query->configure(-parse => 'Text::Query::ParseAdvanced',-build=>'Text::Query::Build');
 
     $question = "word1";
     $query->prepare($question);
@@ -112,6 +112,7 @@ plan test => 18;
 				  },
 				  -quotes => '"',
 				  -parse => 'Text::Query::ParseAdvanced',
+                                  -build => 'Text::Query::Build',
 				  -verbose => 0);
     ok($query->matchstring(), "[ or [ and [ literal word1 ] [ literal word2 ] ] [ and [ and [ and [ and [ literal word3 ] [ near [ not [ literal word4 ] ] [ literal word5 ] ] ] [ literal 'word6' ] ] [ scope 'scopeother' [ literal word7 ] ] ] [ scope 'scope2' [ literal word8 ] ] ] ]", "prepare $question");
 }

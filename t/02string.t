@@ -11,6 +11,7 @@ plan test => 56;
 #
 # ParseSimple logic
 #
+if ($]>=5.005)
 {
     my($question);
     my($query) = Text::Query->new('bluf',
