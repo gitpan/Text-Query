@@ -1,5 +1,6 @@
 #
 #   Copyright (C) 1999 Eric Bohlman, Loic Dachary
+#   Copyright (C) 2013 Jon Jensen
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -16,17 +17,14 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, 675 Mass Ave, Cambridge, MA 02139, USA. 
-#
-# 
-# $Header: /usr/local/cvsroot/Text-Query/lib/Text/Query.pm,v 1.3 1999/06/16 10:35:44 loic Exp $
-#
+
 package Text::Query;
 
 use strict;
 
 use vars qw($VERSION);
 
-$VERSION = "0.07";
+$VERSION = "0.08";
 
 use Carp;
 
@@ -341,12 +339,23 @@ Text::Query::Parse(3),
 Text::Query::Solve(3),
 Text::Query::Optimize(3)
 
+=head1 MAINTENANCE
+
+=over
+
+=item https://github.com/jonjensen/Text-Query
+
+=item https://rt.cpan.org//Dist/Display.html?Queue=Text-Query
+
+=back
 
 =head1 AUTHORS
 
 Eric Bohlman (ebohlman@netcom.com)
 
 Loic Dachary (loic@senga.org)
+
+Jon Jensen, jon@endpoint.com
 
 =cut
 

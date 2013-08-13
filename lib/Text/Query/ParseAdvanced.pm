@@ -1,5 +1,6 @@
 #
 #   Copyright (C) 1999 Eric Bohlman, Loic Dachary
+#   Copyright (C) 2013 Jon Jensen
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -16,10 +17,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, 675 Mass Ave, Cambridge, MA 02139, USA. 
-#
-# 
-# $Header: /usr/local/cvsroot/Text-Query/lib/Text/Query/ParseAdvanced.pm,v 1.2 1999/06/14 12:53:58 loic Exp $
-#
+
 package Text::Query::ParseAdvanced;
 
 use strict;
@@ -111,7 +109,7 @@ sub factor($) {
 	}
     } elsif($t =~ /^($not|!)$/i) {
 	$self->{'token'} = shift(@{$self->{'tokens'}});
-	$rv = $self->build_negation(factor($self));
+	$rv = $self->build_negation($self->factor());
     } elsif($t =~ s/^\e//) {
 	$rv = $self->build_literal($t);
 	$self->{'token'} = shift(@{$self->{'tokens'}});
@@ -119,7 +117,7 @@ sub factor($) {
 	$self->{'token'} = shift(@{$self->{'tokens'}});
 	unshift(@{$self->{'scope'}}, ($self->{'scope_map'}{$t} || $t));
 	$self->build_scope_start();
-	$rv = $self->build_scope_end(factor($self));
+	$rv = $self->build_scope_end($self->factor());
 	shift(@{$self->{'scope'}});
     } else {
 	croak("unexpected token $t in factor");
@@ -266,6 +264,8 @@ Text::Query::Parse(3)
 Eric Bohlman (ebohlman@netcom.com)
 
 Loic Dachary (loic@senga.org)
+
+Jon Jensen, jon@endpoint.com
 
 =cut
 

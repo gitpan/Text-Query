@@ -1,5 +1,6 @@
 #
 #   Copyright (C) 1999 Eric Bohlman, Loic Dachary
+#   Copyright (C) 2013 Jon Jensen
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -16,10 +17,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, 675 Mass Ave, Cambridge, MA 02139, USA. 
-#
-# 
-# $Header: /usr/local/cvsroot/Text-Query/lib/Text/Query/SolveSimpleString.pm,v 1.1.1.1 1999/06/14 11:26:50 loic Exp $
-#
+
 package Text::Query::SolveSimpleString;
 
 BEGIN {
@@ -49,7 +47,7 @@ sub match {
   } else {
     @ra = map { [ $_, $self->matchscalar($expr, $_) ] } @$pa;
   }
-  @ra = sort { $b->[$#{@$b}] <=> $a->[$#{@$a}] } @ra;
+  @ra = sort { $b->[-1] <=> $a->[-1] } @ra;
   return wantarray ? @ra : \@ra;
 }
 
@@ -122,6 +120,8 @@ Slightly faster than C<MATCH> under these circumstances.
 Eric Bohlman (ebohlman@netcom.com)
 
 Loic Dachary (loic@senga.org)
+
+Jon Jensen, jon@endpoint.com
 
 =cut
 

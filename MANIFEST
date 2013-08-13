@@ -17,3 +17,5 @@ lib/Text/Query/SolveAdvancedString.pm
 lib/Text/Query/SolveSimpleString.pm
 t/01default.t
 t/02string.t
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
